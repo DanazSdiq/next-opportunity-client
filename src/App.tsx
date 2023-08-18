@@ -1,7 +1,8 @@
 import React from "react";
+import { Skeleton } from "./components/Skeleton";
 
-function App() {
-  return <h1 className="text-xl text-center m-4">hello world</h1>;
-}
+const App = () => {
+  return <Skeleton>hello World!</Skeleton>;
+};
 
 export default App;
