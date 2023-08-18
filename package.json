@@ -1,7 +1,6 @@
 {
   "name": "next-opportunity-client",
   "version": "0.1.0",
-  "private": true,
   "author": "DanazSdiq",
   "pre-commit": [
     "prettier-format"
