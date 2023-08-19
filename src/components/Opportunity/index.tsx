@@ -65,7 +65,7 @@ export const Opportunity = () => {
 
       <hr className="h-px my-8 bg-gray-100 border-1 dark:bg-gray-700" />
 
-      <div className="grow">{data.description}</div>
+      <div>{data.description}</div>
 
       <div className="flex justify-center sticky top-[100vh]">
         <a
