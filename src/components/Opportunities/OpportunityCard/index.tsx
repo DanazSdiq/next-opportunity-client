@@ -1,6 +1,7 @@
 import React from "react";
 import { Opportunity } from "../../../types/opportunity";
 import { Link } from "react-router-dom";
+import { Badge } from "../../../shared";
 
 export const OpportunityCard = (props: Opportunity) => {
   return (
@@ -13,9 +14,10 @@ export const OpportunityCard = (props: Opportunity) => {
             </dt>
           </div>
           <div className="flex-none self-end px-6 pt-4">
-            <dd className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-              {props.commitment}
-            </dd>
+            <Badge
+              text={props.commitment}
+              colors="bg-green-50 text-green-700 ring-green-600/20"
+            />
           </div>
         </dl>
         <div className="mt-6 border-t border-gray-900/5 px-6 py-6">
