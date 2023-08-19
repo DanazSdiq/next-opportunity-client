@@ -6,7 +6,7 @@ import {
   UsersIcon,
   XMarkIcon
 } from "@heroicons/react/24/outline";
-import OpportunityIcon from "../../../shared/OpportunityIcon";
+import OpportunityIcon from "../../../shared/components/OpportunityIcon";
 
 const navigation = [
   { name: "Home", href: "#", icon: HomeIcon, current: true },

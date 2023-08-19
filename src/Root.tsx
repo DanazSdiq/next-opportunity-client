@@ -2,18 +2,16 @@ import React from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Skeleton } from "./components/Skeleton";
-import { Opportunitise } from "./components/Opportunities";
 import { queryClient } from "./shared";
+import { Outlet } from "react-router-dom";
 
-const App = () => {
+export const Root = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Skeleton>
-        <Opportunitise />
+        <Outlet />
       </Skeleton>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };
-
-export default App;

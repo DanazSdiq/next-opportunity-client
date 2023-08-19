@@ -6,9 +6,7 @@ export const Skeleton = ({ children }: { children: React.ReactNode }) => {
     <div>
       <Navigations />
 
-      <main className="lg:pl-72">
-        <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">{children}</div>
-      </main>
+      <main className="lg:pl-72">{children}</main>
     </div>
   );
 };
