@@ -1,5 +1,6 @@
 import React from "react";
 import { Opportunity } from "../../../types/opportunity";
+import { Link } from "react-router-dom";
 
 export const OpportunityCard = (props: Opportunity) => {
   return (
@@ -18,12 +19,12 @@ export const OpportunityCard = (props: Opportunity) => {
           </div>
         </dl>
         <div className="mt-6 border-t border-gray-900/5 px-6 py-6">
-          <a
-            href={`/opportunities/${props.id}`}
+          <Link
+            to={`/opportunities/${props.id}`}
             className="rounded bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100"
           >
             Expand opportunity
-          </a>
+          </Link>
         </div>
       </div>
     </div>
