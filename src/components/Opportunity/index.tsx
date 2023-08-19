@@ -26,7 +26,9 @@ export const Opportunity = () => {
     <div className={`min-h-screen ${getDefaultPaddings()}`}>
       <div>
         <div className="flex justify-between">
-          <h1 className="text-3xl tracking-wide">{data.title}</h1>
+          <h1 className="text-3xl tracking-wide">
+            {data.title} at {data.organization_name}
+          </h1>
           <div className="mt-2 text-slate-500 text-left">
             <span>
               posted:{" "}
