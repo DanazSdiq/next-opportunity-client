@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchOpportunityById } from "../../apis/fetchOpportunityById";
 import { Badge, Spinner, getDefaultPaddings } from "../../shared";
 import { formatDistance } from "date-fns";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export const Opportunity = () => {
   const { opportunity_id = "" } = useParams();
@@ -67,14 +68,16 @@ export const Opportunity = () => {
 
       <hr className="h-px my-8 bg-gray-100 border-1 dark:bg-gray-700" />
 
-      <div>{data.description}</div>
+      <div>
+        <ReactMarkdown>{data.description}</ReactMarkdown>
+      </div>
 
       <div className="flex justify-center sticky top-[100vh]">
         <a
           href={data.url}
           target="_blank"
           rel="noreferrer"
-          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-md bg-indigo-600 mt-10 mb-4 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           View Opportunity
         </a>
