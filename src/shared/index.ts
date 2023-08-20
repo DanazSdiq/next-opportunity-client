@@ -4,3 +4,4 @@ export * from "./axios";
 export * from "./queryClient";
 export * from "./components/Badge";
 export * from "./getDefaultPaddings";
+export * from "./components/Markdown";
