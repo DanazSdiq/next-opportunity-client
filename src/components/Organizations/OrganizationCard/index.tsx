@@ -1,7 +1,11 @@
 import React from "react";
 import { OrganizationDetails } from "../../../types/organizations";
 
-export const OrganizationCard = (props: OrganizationDetails) => {
+type OrganizationCardProps = OrganizationDetails & {
+  onClick: () => void;
+};
+
+export const OrganizationCard = (props: OrganizationCardProps) => {
   return (
     <div
       key={props.id}
@@ -17,6 +21,7 @@ export const OrganizationCard = (props: OrganizationDetails) => {
         <button
           type="button"
           className="rounded-md text-sm font-medium text-gray-900 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          onClick={props.onClick}
         >
           Expand Opportunities
         </button>
