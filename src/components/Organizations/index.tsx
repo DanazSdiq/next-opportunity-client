@@ -30,7 +30,7 @@ export const Organizations = () => {
         <OrganizationCard
           key={detail.id}
           {...detail}
-          onClick={() => navigate(`/organizations/${detail.id}`)}
+          onClick={() => navigate(`/organizations/${detail.id}/opportunities`)}
         />
       ))}
     </div>

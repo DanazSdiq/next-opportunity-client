@@ -24,7 +24,11 @@ export const Opportunitise = () => {
       className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 ${getDefaultPaddings()}`}
     >
       {data.map((opportunity) => (
-        <OpportunityCard key={opportunity.id} {...opportunity} />
+        <OpportunityCard
+          key={opportunity.id}
+          {...opportunity}
+          href={`/opportunities/${opportunity.id}`}
+        />
       ))}
     </div>
   );
