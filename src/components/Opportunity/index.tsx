@@ -1,12 +1,31 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { fetchOpportunityById } from "../../apis/fetchOpportunityById";
-import { Badge, Markdown, Spinner, getDefaultPaddings } from "../../shared";
+import {
+  Badge,
+  Markdown,
+  Spinner,
+  getDefaultPaddings,
+  queryClient
+} from "../../shared";
 import { formatDistance } from "date-fns";
+import { patchOpportunityIsViewed } from "../../apis/patchOpportunityIsViewed";
+
+const getMarkButtonClass = (isViewed: boolean) =>
+  !isViewed
+    ? "text-white bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    : "bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50";
 
 export const Opportunity = () => {
   const { opportunity_id = "" } = useParams();
+  const mutation = useMutation({
+    mutationFn: (data: { id: string; isViewed: boolean }) =>
+      patchOpportunityIsViewed(data.id, data.isViewed),
+    onSuccess: ({ data }) => {
+      queryClient.setQueryData(["opportunity", data.id], data);
+    }
+  });
   const { isLoading, isError, error, data } = useQuery({
     queryKey: ["opportunity", opportunity_id],
     queryFn: () => fetchOpportunityById(opportunity_id),
@@ -19,7 +38,7 @@ export const Opportunity = () => {
 
   if (isError) {
     console.error(error);
-    return <div>Error buddy</div>;
+    return <div>Error</div>;
   }
 
   return (
@@ -80,6 +99,16 @@ export const Opportunity = () => {
         >
           View Opportunity
         </a>
+        <button
+          onClick={() =>
+            mutation.mutate({ id: data.id, isViewed: !data.is_viewed })
+          }
+          className={`${getMarkButtonClass(
+            data.is_viewed
+          )} rounded-md ml-10 px-3 py-2 mt-14 mb-4 text-sm font-semibold shadow-sm`}
+        >
+          {data.is_viewed ? "Make as unviewed" : "Mark as viewed"}
+        </button>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ export type Opportunity = {
   labels: string[];
   commitment: string;
   url: string;
+  is_viewed: boolean;
   created_at: string;
   updated_at: string;
 };
