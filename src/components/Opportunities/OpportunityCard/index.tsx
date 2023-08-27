@@ -20,6 +20,14 @@ export const OpportunityCard = (props: OpportunityCardProps) => {
               text={props.commitment}
               colors="bg-green-50 text-green-700 ring-green-600/20"
             />
+            {props.is_viewed && (
+              <span className="ml-2">
+                <Badge
+                  text="Marked as viewed"
+                  colors="bg-rose-400 text-white ring-rose-600/20"
+                />
+              </span>
+            )}
           </div>
         </dl>
         <div className="mt-6 border-t border-gray-900/5 px-6 py-6">
