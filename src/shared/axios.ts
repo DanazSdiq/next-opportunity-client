@@ -1,7 +1,8 @@
 import axios from "axios";
+import config from "../config";
 
 const fetch = axios.create({
-  baseURL: process.env.REACT_APP_SERVER_URL,
+  baseURL: config.REACT_APP_SERVER_URL,
   timeout: 20000,
   headers: { "Content-Type": "application/json" }
 });
