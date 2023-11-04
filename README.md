@@ -2,6 +2,9 @@
 
 This repository is the client side of next opportunities applications. The client side is implemented using React in TypeScript as a framework and Tailwind CSS for styling. 
 
+## Run Functioning Instance Locally
+Head over to [this repository](https://github.com/DanazSdiq/next-opportunity-docker) and follow the instructions on README page 
+
 ## How Does All of This Work?
 
 ![next-opportunity layout](./next-opportunity-layout.jpg)
